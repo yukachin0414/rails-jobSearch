@@ -1,0 +1,19 @@
+current directory: /Users/yukayamashita/RubyProjects/Level3/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+/Users/yukayamashita/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20190209-50157-bb90tr.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yukayamashita/RubyProjects/Level3/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/yukayamashita/RubyProjects/Level3/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/yukayamashita/RubyProjects/Level3/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20190209-50157-1hiz4vo/byebug

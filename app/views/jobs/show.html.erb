@@ -1,0 +1,101 @@
+<table>
+  <tbody>
+    <tr>
+      <th>
+        id
+      </th>
+      <td>
+        <%= @job.id %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        企業
+      </th>
+      <td>
+        <%= @job.company.name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        企業ロゴ
+      </th>
+      <td>
+      　 <%= image_tag @job.company.logo, style: 'max-height: 60px; width: auto;' if @job.company.logo.attached? %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        求人名
+      </th>
+      <td>
+        <%= @job.title %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        下限〜上限
+      </th>
+      <td>
+        <%= @job.income_lower %>万円
+        〜
+        <%= @job.income_upper %>万円
+      </td>
+    </tr>
+    <tr>
+      <th>
+        スキル
+      </th>
+      <td>
+        <% @job.skills.each do |skill| %>
+          <%= skill.name %><br>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        画像
+      </th>
+      <td>
+        <% if @job.images.attached? %>
+          <% @job.images.each do |image| %>
+            <%= image_tag image, style: 'max-height: 60px; width: auto;' %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        ウリ文句
+      </th>
+      <td>
+        <%= nl2br @job.description %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        エントリー
+      </th>
+      <td>
+        <% if @has_entry %>
+          エントリー済みです。
+        <% else %>
+          <%= button_to 'entry', entries_path(job_id: @job.id), method: :post %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        お気に入り
+      </th>
+      <td>
+        <% if @has_favorite %>
+          お気に入り済みです。
+        <% else %>
+          <%= button_to 'favorite', favorites_path(job_id: @job.id), method: :post %>
+        <% end %>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

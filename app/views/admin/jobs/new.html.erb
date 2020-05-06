@@ -1,0 +1,55 @@
+<%= form_for([:admin, @job]) do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          企業
+        </th>
+        <td>
+          <%= f.collection_select :company_id, @companies, :id, :name, include_blank: true %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          求人名
+        </th>
+        <td>
+          <%= f.text_field :title %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          年収下限
+        </th>
+        <td>
+          <%= f.text_field :income_lower %>万円
+        </td>
+      </tr>
+      <tr>
+        <th>
+          年収上限
+        </th>
+        <td>
+          <%= f.text_field :income_upper %>万円
+        </td>
+      </tr>
+      <tr>
+        <th>
+          ウリ文句
+        </th>
+        <td>
+          <%= f.text_field :description %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          画像
+        </th>
+        <td>
+          <%= f.file_field :images, multiple: true %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit %>
+<% end %>

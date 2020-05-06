@@ -1,0 +1,23 @@
+<%= form_for([:admin, @company]) do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          企業名
+        </th>
+        <td>
+          <%= f.text_field :name %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          企業ロゴ
+        </th>
+        <td>
+          <%= f.file_field :logo %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit %>
+<% end %>

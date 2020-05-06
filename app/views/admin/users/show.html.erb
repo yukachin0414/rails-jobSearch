@@ -1,0 +1,40 @@
+<table>
+  <tbody>
+    <tr>
+      <th>
+        id
+      </th>
+      <td>
+        <%= @user.id %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        アドレス
+      </th>
+      <td>
+        <%= @user.email %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        エントリー
+      </th>
+      <td>
+        <% @user.entries.each do |entry| %>
+          <%= entry.job.id %> <%= entry.job.title %><br>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        お気に入り
+      </th>
+      <td>
+        <% @user.favorites.each do |favorite| %>
+          <%= favorite.job.id %> <%= favorite.job.title %><br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<%= link_to '新規作成', new_admin_skill_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      <th>
+        言語名
+      </th>
+      <th>
+        編集
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @skills.each do |skill| %>
+      <tr>
+        <td>
+          <%= skill.id %>
+        </td>
+        <td>
+          <%= skill.name %>
+        </td>
+        <td>
+          <%= link_to '編集', edit_admin_skill_path(skill) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

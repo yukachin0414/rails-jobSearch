@@ -1,0 +1,15 @@
+<%= form_for([:admin, @skill]) do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          言語名
+        </th>
+        <td>
+          <%= f.text_field :name %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit %>
+<% end %>

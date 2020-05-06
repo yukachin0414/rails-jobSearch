@@ -1,0 +1,38 @@
+<%= link_to '新規作成', new_admin_company_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      <th>
+        企業名
+      </th>
+      <th>
+        企業ロゴ
+      </th>
+      <th>
+        編集
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td>
+          <%= company.id %>
+        </td>
+        <td>
+          <%= company.name %>
+        </td>
+        <td>
+          <%= image_tag company.logo, style: 'max-height: 60px; width: auto;' if company.logo.attached? %>
+        </td>
+        <td>
+          <%= link_to '編集', edit_admin_company_path(company) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

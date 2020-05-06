@@ -1,0 +1,68 @@
+<%= form_for([:admin, @job]) do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          企業名
+        </th>
+        <td>
+          <%= @job.company.name %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          求人名
+        </th>
+        <td>
+          <%= f.text_field :title %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          年収下限
+        </th>
+        <td>
+          <%= f.text_field :income_lower %>万円
+        </td>
+      </tr>
+      <tr>
+        <th>
+          年収上限
+        </th>
+        <td>
+          <%= f.text_field :income_upper %>万円
+        </td>
+      </tr>
+      <tr>
+        <th>
+          画像
+        </th>
+        <td>
+          <%= f.file_field :images, multiple: true %><br>
+          <% @job.images.each do |image| %>
+            <%= image_tag image, style: 'max-height: 60px; width: auto;' %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          ウリ文句
+        </th>
+        <td>
+          <%= f.text_area :description, style: 'height: 5em; width: 40em;' %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          スキル
+        </th>
+        <td>
+          <%= f.collection_check_boxes(:skill_ids, @skills, :id, :name) do |c| %>
+            <%= c.label { c.check_box + c.text } %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit %>
+<% end %>

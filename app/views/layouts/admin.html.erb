@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Level3</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <p>
+      <%= link_to '企業', admin_companies_path %>
+      <%= link_to '求人', admin_jobs_path %>
+      <%= link_to 'スキル', admin_skills_path %>
+      <%= link_to 'ユーザー', admin_users_path %>
+      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+      </p>
+    <%= yield %>
+  </body>
+</html>

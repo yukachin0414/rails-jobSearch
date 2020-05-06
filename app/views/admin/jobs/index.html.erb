@@ -1,0 +1,57 @@
+<%= link_to '新規作成', new_admin_job_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      <th>
+        企業
+      </th>
+      <th>
+        求人名
+      </th>
+      <th>
+        下限〜上限
+      </th>
+      <th>
+        画像
+      </th>
+      <th>
+        編集
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @jobs.each do |job| %>
+      <tr>
+        <td>
+          <%= job.id %>
+        </td>
+        <td>
+          <%= job.company.name %>
+        </td>
+        <td>
+          <%= job.title %>
+        </td>
+        <td>
+          <%= job.income_lower %>万円
+          〜
+          <%= job.income_upper %>万円
+        </td>
+        <td>
+          <% if job.images.attached? %>
+            <% job.images.each do |image| %>
+              <%= image_tag image, style: 'max-height: 60px; width: auto;' %>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to '編集', edit_admin_job_path(job) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
